@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('issue_delete', {'id': issue.id,'name': project.name}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ issue.id) }}">
+    <button class="btn btn-outline-danger btn-sm"><span data-feather="trash-2"></span> Delete</button>
+</form>

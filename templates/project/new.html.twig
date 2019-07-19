@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Project{% endblock %}
+
+{% block body %}
+	<section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Create nex project</h1>
+        {{ include('project/_form.html.twig') }}
+      </p>
+    </div>
+  </section>
+{% endblock %}

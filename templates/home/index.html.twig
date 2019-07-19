@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block body %}
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Project backlog</h1>
+        <a href="{{ url('project_new') }}" class="btn btn-primary my-2">Create project</a>
+        <a href="#" class="btn btn-info my-2">Quick create</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+      	{% for project in projects %}
+	      	<div class="col-md-4">
+	          <div class="card mb-4 shadow-sm">
+	            <div class="card-body">
+	            	<h5 class="card-title">Project {{ project.name }}</h5>
+	            	<h6 class="card-subtitle mb-2"><span class="badge badge-warning">in progress</span></h6>
+	              <p class="card-text">{{ project.description }}</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <div class="btn-group">
+	                  <a class="btn btn-sm btn-outline-secondary" href="{{ path('project_show', {'name': project.name}) }}" role="button">View</a>
+	                  <button type="button" class="btn btn-sm btn-outline-secondary">Create item</button>
+	                </div>
+	                <small class="text-muted">99 items</small>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+        {% else %}
+        	<div class="col-md-4">
+	          <div class="card mb-4 shadow-sm">
+	            <div class="card-body">
+	            	<h5 class="card-title">No project found</h5>
+	            </div>
+	          </div>
+	        </div>
+      	{% endfor %}  
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
